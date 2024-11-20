@@ -60,13 +60,15 @@ const Empty = styled.p`
 `;
 
 const TableContext = createContext();
+
 function Table({ children, columns }) {
   return (
     <TableContext.Provider value={{ columns }}>
-      <StyledTable>{children}</StyledTable>
+      <StyledTable role="table">{children}</StyledTable>
     </TableContext.Provider>
   );
 }
+
 function Header({ children }) {
   const { columns } = useContext(TableContext);
   return (
@@ -75,14 +77,22 @@ function Header({ children }) {
     </StyledHeader>
   );
 }
+
 function Body({ data, render }) {
   if (!data.length) return <Empty>No data to show at the moment</Empty>;
+
   return <StyledBody>{data.map(render)}</StyledBody>;
 }
+
 function Row({ children }) {
   const { columns } = useContext(TableContext);
-  return <StyledRow $columns={columns}>{children}</StyledRow>;
+  return (
+    <StyledRow role="row" $columns={columns}>
+      {children}
+    </StyledRow>
+  );
 }
+
 Table.Header = Header;
 Table.Body = Body;
 Table.Row = Row;
