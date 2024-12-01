@@ -25,7 +25,6 @@ function SideBar() {
       <Logo />
       <Title>The Serene Harmony Resort</Title>
       <MainNav />
-      <Uploader />
     </StyledSidebar>
   );
 }

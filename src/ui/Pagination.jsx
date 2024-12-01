@@ -28,7 +28,6 @@ function Pagination({ count }) {
     <StyledPagination>
       <Pagination2
         count={pageCount}
-        color="primary"
         size="large"
         page={page}
         onChange={handleClick}
@@ -36,6 +35,16 @@ function Pagination({ count }) {
           "& .MuiPaginationItem-root": {
             fontWeight: "bold",
             fontSize: "12px",
+            color: document.documentElement.classList.contains("light-mode")
+              ? "black"
+              : "white",
+          },
+          "& .MuiPaginationItem-root:hover": {
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+          },
+          "& .Mui-selected": {
+            color: "white",
+            backgroundColor: "#a19a61 !important",
           },
         }}
       />

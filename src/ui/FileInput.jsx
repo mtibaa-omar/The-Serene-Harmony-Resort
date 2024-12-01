@@ -12,14 +12,14 @@ const FileInput = styled.input`
     border-radius: var(--border-radius-sm);
     border: none;
     color: var(--color-brand-50);
-    background-color: var(--color-brand-600);
+    background-color: #a19a61;
     cursor: pointer;
     transition:
       color 0.2s,
       background-color 0.2s;
 
     &:hover {
-      background-color: var(--color-brand-700);
+      background-color: #7c7443;
     }
   }
 `;

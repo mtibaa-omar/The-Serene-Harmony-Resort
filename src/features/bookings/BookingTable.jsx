@@ -5,12 +5,12 @@ import { useBookings } from "./useBookings";
 import Spinner from "../../ui/Spinner";
 import Empty from "../../ui/Empty";
 import Pagination from "../../ui/Pagination";
-// import PaginationV2 from "../../ui/PaginationV2";
 
 function BookingTable() {
   const { isLoading, bookings, count } = useBookings();
   if (isLoading) return <Spinner />;
-  if (!count) return <Empty resourceName="bookings" />;
+
+  if (!bookings.length) return <Empty resourceName="bookings" />;
   return (
     <Menus>
       <Table columns="0.6fr 2fr 2.4fr 1.4fr 1fr 3.2rem">
