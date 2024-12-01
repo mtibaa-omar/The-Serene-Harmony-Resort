@@ -28,6 +28,7 @@ function SignupForm() {
           type="text"
           id="fullName"
           {...register("fullName", { required: "This Field is required" })}
+          disabled={isLoading}
         />
       </FormRow>
 
@@ -42,6 +43,7 @@ function SignupForm() {
               message: "Please provide a valid email adress",
             },
           })}
+          disabled={isLoading}
         />
       </FormRow>
 
@@ -59,6 +61,7 @@ function SignupForm() {
               message: "password needs a minimum of 8 characters",
             },
           })}
+          disabled={isLoading}
         />
       </FormRow>
 
@@ -71,6 +74,7 @@ function SignupForm() {
             validate: (value) =>
               value === getValues().password || "Passwords need to match",
           })}
+          disabled={isLoading}
         />
       </FormRow>
 
@@ -79,7 +83,7 @@ function SignupForm() {
         <Button $variation="secondary" type="reset" onClick={reset}>
           Cancel
         </Button>
-        <Button>Create new user</Button>
+        <Button disabled={isLoading}>Create new user</Button>
       </FormRow>
     </Form>
   );
